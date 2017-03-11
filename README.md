@@ -2,7 +2,9 @@
 hboc model
 
 'hboc' : selve modellen 
+
 'Inputs' : litt transformasjoner av inputdata fra 'Evidence synthesis'
+
 'Evidence synthesis' : data kilder, antagelser (obs: en del av innholdet i den ble ikke brukt av ulike årsaker)
 
 Dette er kun en veldig basic utgave, men alt fungerer tilsynelatende. 
