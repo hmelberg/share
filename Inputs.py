@@ -4,19 +4,19 @@ import random
 import math
 import gc
 
-import Evidence_synthesis
-from Evidence_synthesis import *
+from Evidence_synthesis import life_exp
 
+m = pd.DataFrame(data = life_exp)
 
-m = pd.read_csv('p_die_bgpop.csv')
 def mb(age):
     """
     Function returns probability of mortality in Norwegian pop. based on life-expectancy for entered age
     """
-    p = m.loc[(m.age==age),['p_die'] ]
+    p = life_exp.loc[(life_exp.Age==age),['p_die'] ]
     return p.p_die
 
-rec = pd.read_csv('p_recurrence.csv')
+from Evidence_synthesis import p_recurrence
+rec = pd.DataFrame(data = p_recurrence)
 
 def rb(age):
     """
@@ -29,7 +29,10 @@ def rb(age):
     if (age >= 70): p = rec.recurrence[4]
     return p
 
-bc = pd.read_csv('p_atrisk_to_bc.csv')
+
+
+from Evidence_synthesis import p_atrisk_to_bc
+bc = pd.DataFrame(data = p_atrisk_to_bc)
 
 def bcr(age):
     """
@@ -52,7 +55,9 @@ def bcr(age):
     if (age > 84): p = bc.prob_of_bc[14]
     return p
 
-roc = pd.read_csv('p_atrisk_to_oc.csv')
+
+from Evidence_synthesis import p_atrisk_to_oc 
+roc = pd.DataFrame(data = p_atrisk_to_oc)
 
 def ro(age):
     """
@@ -71,7 +76,10 @@ def ro(age):
     if (age > 84): pm = roc.prob_of_oc[9]
     return pm
 
-mr_bc = pd.read_csv('p_die_bc.csv')
+
+from Evidence_synthesis import p_die_bc 
+mr_bc = pd.DataFrame(data = p_die_bc)
+
 
 def m_bc1(age):
     """
@@ -101,7 +109,9 @@ def m_bc4(age):
     p = mr_bc.loc[(mr_bc.Age==age),  ['p_die_stIV']]
     return p.p_die_stIV
 
-mr_oc = pd.read_csv('p_die_oc.csv')
+
+from Evidence_synthesis import p_die_oc
+mr_oc = pd.DataFrame(data = p_die_oc)
 
 def m_ocl(age):
     """
@@ -125,7 +135,9 @@ def m_ocd(age):
     p = mr_oc.loc[(mr_oc.Age==age),  ['p_die_distant_oc']]
     return p.p_die_distant_oc
 
-dist_bc = pd.read_csv('p_dist_age_stage_bc_relavives.csv')
+
+from Evidence_synthesis import p_stage_age
+dist_bc = pd.DataFrame(data = p_stage_age)
 
 def bc1(age):
     """
@@ -163,7 +175,9 @@ def bc4(age):
     if (age > 69): p = dist_bc.stageIV[2]
     return p
 
-dist_oc = pd.read_csv('p_ocdiag_to_st.csv')
+
+from Evidence_synthesis import p_ocstage_at_diagn
+dist_oc = pd.DataFrame(data = p_ocstage_at_diagn)
 
 def ocl():
     """
