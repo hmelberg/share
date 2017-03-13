@@ -1,23 +1,12 @@
 # share
-hboc model
+Contents:
 
-'hboc' : selve modellen 
+- 'Model.ipynb': main file for running the model
 
-'Inputs' : litt transformasjoner av inputdata fra 'Evidence synthesis'
+- 'Evidence_synthesis.py': data collection, aggregation, and manipulation to be usable in model as well as reasoning behind choices.
 
-'Evidence synthesis' : data kilder, antagelser (obs: en del av innholdet i den ble ikke brukt av ulike årsaker)
+- 'Inputs.py': what is actually used from 'Evidence_synthesis' at any version of the model
 
-Dette er kun en veldig basic utgave, men alt fungerer tilsynelatende. 
+- 'Transitions': how agents transition between states in the model.
 
-To do: (11.03.17)
-- test av Mesa's 'batch-run' funksjon som PSA
-
-- legge til noen Widgets for å selektere alder o.l.
-
-- importere 'ceac' opplegg fra annen model
-
-- finne ut hvordan man kan merge denne modellen med et beslutningstre av testingen
-  (behøver kanskje ikke tre)
-  
-etter dette må det gjøres mer estimering/syntesering av kostnader og qol,
-fortsette og pushe på amg for testdata, finne tilbake til back-up artikkel med paneltesting 
+- 'Controls': widgets for main file
