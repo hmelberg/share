@@ -14,3 +14,12 @@ initial_age = widgets.IntSlider(
     readout_format='i',
     slider_color='white'
 )
+
+run = widgets.ToggleButton(
+    value=False,
+    description='Run model',
+    disabled=False,
+    button_style='', # 'success', 'info', 'warning', 'danger' or ''
+    tooltip='Description',
+    icon='check'
+)
