@@ -147,7 +147,7 @@ def tp_b1(age):
 
 def from_b1(age, time_in_b1):
     true_pr_b1 = [(1 - tp_b1(age)), tp_b1(age), 0]
-    if time_in_b1>=10:
+    if time_in_b1>=5:
         true_pr_b1 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     b1 = np.random.multinomial(1, pvals = true_pr_b1)
@@ -168,7 +168,7 @@ def from_b2(age, time_in_b2):
                   tp_b2(age),
                   0
                   ]
-    if time_in_b2>=10:
+    if time_in_b2>=5:
         true_pr_b2 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     b2 = np.random.multinomial(1, pvals= true_pr_b2)
@@ -189,7 +189,7 @@ def from_b3(age, time_in_b3):
                   tp_b3(age),
                   0
                   ]
-    if time_in_b3>=10:
+    if time_in_b3>=5:
         true_pr_b3 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age
     b3 = np.random.multinomial(1, pvals= true_pr_b3)
@@ -210,7 +210,7 @@ def from_b4(age, time_in_b4):
                   tp_b4(age),
                   0
                   ]
-    if time_in_b4>=10:
+    if time_in_b4>=5:
         true_pr_b4 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     b4 = np.random.multinomial(1, pvals= true_pr_b4)
