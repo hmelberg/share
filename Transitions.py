@@ -23,11 +23,11 @@ def tp_a0b0(age):
 def tp_a0c0(age):
     return ro(age)
 def tp_a0d0():
-    return mo()
+    return 0
 def tp_a0d1():
-    return ma()
+    return 0
 def tp_a0d2():
-    return oo()
+    return 0
 def tp_a0f0(age):
     return mb(age)
 
@@ -54,7 +54,7 @@ def from_a0(age):
 def tp_a1c0(age):
     return ro(age)
 def tp_a1d2():
-    return oo()
+    return 0
 def tp_a1f0(age):
     return mb(age)
 
@@ -81,7 +81,7 @@ def tp_a2b0r(age):
 def tp_a2b0(age):
     return rb(age)
 def tp_a2d1():
-    return ma()
+    return 0
 def tp_a2f0(age):
     return mb(age)
 
@@ -352,5 +352,5 @@ def from_e0(age):
     """    
     true_pr_e0 = (1 - tp_e0f0(age))
 # Event for agent each step | transition probabilities, own age    
-    e0 = np.random(1, p = true_pr_e0)
+    e0 = np.random.binomial(1, p = true_pr_e0)
     return e0
