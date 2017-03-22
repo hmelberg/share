@@ -147,7 +147,7 @@ def tp_b1(age):
     return m_bc1(age)
 
 def from_b1(age, time_in_b1):
-    if time_in_b1 < 5:
+    if time_in_b1 <= 5:
         true_pr_b1 = [(1 - tp_b1(age)), tp_b1(age), 0]
     else:    
         true_pr_b1 = [0, 0, 1]
@@ -168,7 +168,7 @@ def from_b2(age, time_in_b2):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b2<5:
+    if time_in_b2<=5:
         true_pr_b2 = [(1 - tp_b2(age)), tp_b2(age), 0]  
     else:
         true_pr_b2 = [0, 0, 1] 
@@ -188,7 +188,7 @@ def from_b3(age, time_in_b3):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b3<5:
+    if time_in_b3<=5:
         true_pr_b3 = [(1 - tp_b3(age)),tp_b3(age), 0]
     else:
         true_pr_b3 = [0, 0, 1]
@@ -208,7 +208,7 @@ def from_b4(age, time_in_b4):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b4<5:
+    if time_in_b4<=5:
         true_pr_b4 = [(1 - tp_b4(age)), tp_b4(age), 0]
     else:
         true_pr_b4 = [0, 0, 1]
