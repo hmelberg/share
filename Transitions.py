@@ -140,18 +140,22 @@ def from_b0(age):
     b0 = np.random.multinomial(1, pvals = true_pr_b0)
     return b0
 
+
 ## From b1
 # Transition probabilties
 def tp_b1(age):
     return m_bc1(age)
 
 def from_b1(age, time_in_b1):
-    true_pr_b1 = [(1 - tp_b1(age)), tp_b1(age), 0]
-    if time_in_b1>=5:
+    if time_in_b1 < 5:
+        true_pr_b1 = [(1 - tp_b1(age)), tp_b1(age), 0]
+    else:    
         true_pr_b1 = [0, 0, 1]
+        
 # Event for agent each step | transition probabilities, own age        
     b1 = np.random.multinomial(1, pvals = true_pr_b1)
     return b1
+
 
 ## From b2
 # Transition probabilites
@@ -164,15 +168,14 @@ def from_b2(age, time_in_b2):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    true_pr_b2 = [(1 - tp_b2(age)),
-                  tp_b2(age),
-                  0
-                  ]
-    if time_in_b2>=5:
-        true_pr_b2 = [0, 0, 1]
+    if time_in_b2<5:
+        true_pr_b2 = [(1 - tp_b2(age)), tp_b2(age), 0]  
+    else:
+        true_pr_b2 = [0, 0, 1] 
 # Event for agent each step | transition probabilities, own age        
     b2 = np.random.multinomial(1, pvals= true_pr_b2)
     return b2
+
 
 ## From b3
 # Transition probabilites
@@ -185,15 +188,14 @@ def from_b3(age, time_in_b3):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    true_pr_b3 = [(1 - tp_b3(age)),
-                  tp_b3(age),
-                  0
-                  ]
-    if time_in_b3>=5:
+    if time_in_b3<5:
+        true_pr_b3 = [(1 - tp_b3(age)),tp_b3(age), 0]
+    else:
         true_pr_b3 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age
     b3 = np.random.multinomial(1, pvals= true_pr_b3)
     return b3
+
 
 ## From b4
 # Transition probabilites
@@ -206,15 +208,14 @@ def from_b4(age, time_in_b4):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    true_pr_b4 = [(1 - tp_b4(age)),
-                  tp_b4(age),
-                  0
-                  ]
-    if time_in_b4>=5:
+    if time_in_b4<5:
+        true_pr_b4 = [(1 - tp_b4(age)), tp_b4(age), 0]
+    else:
         true_pr_b4 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     b4 = np.random.multinomial(1, pvals= true_pr_b4)
     return b4
+
 
 ## From c0
 # Transition probabilities
@@ -249,11 +250,9 @@ def from_c1(age, time_in_c1):
     and transfer to state_f2
     If agent stays for a period of t = 10 cycles, she transfer out to state_a2
     """
-    true_pr_c1 = [(1 - tp_c1f2(age)),
-                  tp_c1f2(age),
-                  0
-                  ]
-    if time_in_c1>=10: 
+    if time_in_c1<10: 
+        true_pr_c1 = [(1 - tp_c1f2(age)), tp_c1f2(age), 0]
+    else:
         true_pr_c1 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     c1 = np.random.multinomial(1, pvals = true_pr_c1)
@@ -270,11 +269,10 @@ def from_c2(age, time_in_c2):
     and transfer to state_f2
     If agent stays for a period of t = 10 cycles, she transfer out to state_a2
     """
-    true_pr_c2 = [(1 - tp_c2f2(age)),
-                  tp_c2f2(age),
-                  0
-                  ]
-    if time_in_c2>=10: 
+    if time_in_c2<10:
+        true_pr_c2 = [(1 - tp_c2f2(age)), tp_c2f2(age), 0]
+
+    else:
         true_pr_c2 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     c2 = np.random.multinomial(1, pvals = true_pr_c2)
@@ -291,11 +289,9 @@ def from_c3(age, time_in_c3):
     and transfer to state_f2
     If agent stays for a period of t = 10 cycles, she transfer out to state_a2
     """
-    true_pr_c3 = [(1 - tp_c3f2(age)),
-                  tp_c3f2(age),
-                  0
-                  ]
-    if time_in_c3>=10: 
+    if time_in_c3<10: 
+        true_pr_c3 = [(1 - tp_c3f2(age)), tp_c3f2(age), 0]
+    else:
         true_pr_c3 = [0, 0, 1]
 # Event for agent each step | transition probabilities, own age        
     c3 = np.random.multinomial(1, pvals = true_pr_c3)
