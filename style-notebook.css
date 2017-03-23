@@ -1,13 +1,14 @@
+
 h1 {
     color: white;
-    background-color: gray;
+    background-color: steelblue;
     padding: 0.5em;
    }
 
 
 h2 {
     color: white;
-    background-color: gray;
+    background-color: steelblue;
     padding: 0.5em;
    }
 
@@ -15,6 +16,12 @@ h2 {
 
 h3 {
     color: white;
-    background-color: gray;
+    background-color: lightsteelblue;
+    padding: 0.5em;
+}
+
+h4 {
+    color: white;
+        background-color: lightsteelblue;
     padding: 0.5em;
 }
