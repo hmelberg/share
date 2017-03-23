@@ -7,13 +7,15 @@ import gc
 from Evidence_synthesis import life_exp
 
 m = pd.DataFrame(data = life_exp)
+m = m.set_index('Age')
 
 def mb(age):
     """
     Function returns probability of mortality in Norwegian pop. based on life-expectancy for entered age
     """
-    p = life_exp.loc[(life_exp.Age==age),['p_die'] ]
-    return p.p_die
+    p = m.loc[age, 'p_die']
+    return p
+
 
 from Evidence_synthesis import p_recurrence
 rec = pd.DataFrame(data = p_recurrence)
@@ -79,61 +81,63 @@ def ro(age):
 
 from Evidence_synthesis import p_die_bc 
 mr_bc = pd.DataFrame(data = p_die_bc)
+mr_bc = mr_bc.set_index('Age')
 
 
 def m_bc1(age):
     """
     Function returns probabiltiy of death with stage 1 breast cancer in Norway for entered age
     """
-    p = mr_bc.loc[(mr_bc.Age==age),  ['p_die_stI']]
-    return p.p_die_stI
+    p = mr_bc.loc[age,  'p_die_stI']
+    return p
 
 def m_bc2(age):
     """
     Function returns probabiltiy of death with stage 2 breast cancer in Norway for entered age
     """
-    p = mr_bc.loc[(mr_bc.Age==age),  ['p_die_stII']]
-    return p.p_die_stII
+    p = mr_bc.loc[age,  'p_die_stII']
+    return p
 
 def m_bc3(age):
     """
     Function returns probabiltiy of death with stage 3 breast cancer in Norway for entered age
     """
-    p = mr_bc.loc[(mr_bc.Age==age),  ['p_die_stIII']]
-    return p.p_die_stIII
+    p = mr_bc.loc[age,  'p_die_stIII']
+    return p
 
 def m_bc4(age):
     """
     Function returns probabiltiy of death with stage 4 breast cancer in Norway for entered age
     """
-    p = mr_bc.loc[(mr_bc.Age==age),  ['p_die_stIV']]
-    return p.p_die_stIV
+    p = mr_bc.loc[age,  'p_die_stIV']
+    return p
 
 
 from Evidence_synthesis import p_die_oc
 mr_oc = pd.DataFrame(data = p_die_oc)
+mr_oc = mr_oc.set_index('Age')
 
 def m_ocl(age):
     """
     Function returns probabiltiy of death with local ovarian cancer in Norway for entered age
     """
-    p = mr_oc.loc[(mr_oc.Age==age),  ['p_die_local_oc']]
-    return p.p_die_local_oc
+    p = mr_oc.loc[age,  'p_die_local_oc']
+    return p
 
 def m_ocr(age):
     """
     Function returns probabiltiy of death with regional ovarian cancer in Norway for entered age
     """
-    p = mr_oc.loc[(mr_oc.Age==age),  ['p_die_regional_oc']]
-    return p.p_die_regional_oc
+    p = mr_oc.loc[age,  'p_die_regional_oc']
+    return p
 
 
 def m_ocd(age):
     """
     Function returns probabiltiy of death with distant ovarian cancer in Norway for entered age
     """
-    p = mr_oc.loc[(mr_oc.Age==age),  ['p_die_distant_oc']]
-    return p.p_die_distant_oc
+    p = mr_oc.loc[age,  'p_die_distant_oc']
+    return p
 
 
 from Evidence_synthesis import p_stage_age

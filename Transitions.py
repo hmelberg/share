@@ -147,7 +147,12 @@ def tp_b1(age):
     return m_bc1(age)
 
 def from_b1(age, time_in_b1):
-    if time_in_b1 <= 5:
+    """
+    If in state for 5 cycles, agents go dir. to A1 where relative mortality risk to background ~ eliminated.
+    Have to specify <= 3 because if set at 5 they stay for 7 cycles. It can be caused by when the time list 
+    is appended: e.g. both on the first time in, and on the time they leave... Dunno!
+    """
+    if time_in_b1 <= 3:
         true_pr_b1 = [(1 - tp_b1(age)), tp_b1(age), 0]
     else:    
         true_pr_b1 = [0, 0, 1]
@@ -168,7 +173,7 @@ def from_b2(age, time_in_b2):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b2<=5:
+    if time_in_b2<=3:
         true_pr_b2 = [(1 - tp_b2(age)), tp_b2(age), 0]  
     else:
         true_pr_b2 = [0, 0, 1] 
@@ -188,7 +193,7 @@ def from_b3(age, time_in_b3):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b3<=5:
+    if time_in_b3<=3:
         true_pr_b3 = [(1 - tp_b3(age)),tp_b3(age), 0]
     else:
         true_pr_b3 = [0, 0, 1]
@@ -208,7 +213,7 @@ def from_b4(age, time_in_b4):
     Else: agent transfers to state f1 (bc specific mortality)
     If agent stays for a period of t = 10 cycles, she transfer out to state_a1
     """
-    if time_in_b4<=5:
+    if time_in_b4<=3:
         true_pr_b4 = [(1 - tp_b4(age)), tp_b4(age), 0]
     else:
         true_pr_b4 = [0, 0, 1]
@@ -248,9 +253,10 @@ def from_c1(age, time_in_c1):
     """
     Returns 1 if agent survives untill next cycle, 0 means agent dies from ovarian cancer
     and transfer to state_f2
-    If agent stays for a period of t = 10 cycles, she transfer out to state_a2
+    If agent stays for a period of t = 10 cycles, she transfer out to state_a2.
+    See "from_b1" for explanation of why t = t- 2...
     """
-    if time_in_c1<10: 
+    if time_in_c1<8: 
         true_pr_c1 = [(1 - tp_c1f2(age)), tp_c1f2(age), 0]
     else:
         true_pr_c1 = [0, 0, 1]
@@ -269,7 +275,7 @@ def from_c2(age, time_in_c2):
     and transfer to state_f2
     If agent stays for a period of t = 10 cycles, she transfer out to state_a2
     """
-    if time_in_c2<10:
+    if time_in_c2<8:
         true_pr_c2 = [(1 - tp_c2f2(age)), tp_c2f2(age), 0]
 
     else:
@@ -289,7 +295,7 @@ def from_c3(age, time_in_c3):
     and transfer to state_f2
     If agent stays for a period of t = 10 cycles, she transfer out to state_a2
     """
-    if time_in_c3<10: 
+    if time_in_c3<8: 
         true_pr_c3 = [(1 - tp_c3f2(age)), tp_c3f2(age), 0]
     else:
         true_pr_c3 = [0, 0, 1]
