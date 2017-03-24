@@ -824,12 +824,12 @@ pd.read_csv('M:\pc\Desktop\lit_review\p_atrisk_to_bc.csv')
 
 # In[183]:
 
-life_exp = pd.read_excel('M:/pc/Desktop/lit_review/breast/atrisk_death/life_exp_2015.xlsx')
+life_e = pd.read_excel('M:/pc/Desktop/lit_review/breast/atrisk_death/life_exp_2015.xlsx')
 
 
 # In[184]:
 
-life_exp
+life_exp = pd.DataFrame(data = life_e)
 
 
 # In[54]:
@@ -1019,8 +1019,8 @@ rs_bc
 # In[255]:
 
 # igjen, mekket ihop resten i Excel
-p_die_bc = pd.read_excel('M:/pc/Desktop/lit_review/breast/mortality0.xlsx')
-
+p_die_bre = pd.read_excel('M:/pc/Desktop/lit_review/breast/mortality0.xlsx')
+p_die_bc = pd.DataFrame(data = p_die_bre)
 
 # In[256]:
 
@@ -1033,7 +1033,6 @@ p_die_bc.to_csv('M:\pc\Desktop\lit_review\p_die_bc.csv')
 
 
 # In[258]:
-
 # ps. når/hvis du skal importere disse i excel senere gå til 'data', 
 # så til 'fra tekst', velg 'komma' (CSV = kommaseparerte verdier).
 
@@ -1091,8 +1090,8 @@ rs_oc
 # In[320]:
 
 # igjen, mekket ihop resten i Excel
-p_die_oc = pd.read_excel('M:/pc/Desktop/lit_review/ovarian/mortality1.xlsx')
-
+p_die_ovar = pd.read_excel('M:/pc/Desktop/lit_review/ovarian/mortality1.xlsx')
+p_die_oc = pd.DataFrame(data = p_die_ovar)
 
 # In[321]:
 
